@@ -6,8 +6,8 @@ import org.json.JSONObject;
 
 public class SongHandler {
 
-    private static final int START_SONG = 16775;
-    private static final int END_SONG = 16785;
+    private static final int START_SONG = 76877;
+    private static final int END_SONG = 76882;
     public static final String Lyrics = "LYRICS";
     final public static String [] songs = new String[END_SONG - START_SONG +1];;
 

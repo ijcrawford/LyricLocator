@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
     SongHandler sgHandler = new SongHandler();
 
     boolean userSelect = false;
-    private String url1 = "https://genius.p.rapidapi.com/artists/";
-    private String url2= "/songs";
+    private String url1 = "https://genius.p.rapidapi.com/songs/";
+    private String song_id = "76878";
     private String LOG_TAG = MainActivity.class.getSimpleName();
     private ShareActionProvider provider;
 
@@ -80,10 +80,11 @@ public class MainActivity extends AppCompatActivity {
             BufferedReader reader = null;
             String yearFact = null;
             try{
-                URL url = new URL(url1 + strings[0]+url2);
+                URL url = new URL(url1 + song_id);
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("GET");
-                urlConnection.setRequestProperty("X-RapidAPI-Key","71e335093bmshbf049ece1f99845p105039jsned888f7a4885");
+                urlConnection.setRequestProperty("X-RapidAPI-Key","UygwA3LnI1mshAPcqbrTdu6rvUkxp1Kd1q6jsnETjeLq2t3LzS");
+                urlConnection.setRequestProperty("useQueryString", "true");
                 urlConnection.connect();
 
                 InputStream in = urlConnection.getInputStream();
