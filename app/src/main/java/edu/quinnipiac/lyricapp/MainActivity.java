@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             if(result != null)
                 Log.d(LOG_TAG, "Result is null");
             Intent intent = new Intent(MainActivity.this, LyricActivity.class);
-            intent.putExtra("Songs", result);
+            intent.putExtra("yearfact", result);
             startActivity(intent);
         }
     }

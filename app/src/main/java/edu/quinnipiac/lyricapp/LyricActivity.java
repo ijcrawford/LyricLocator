@@ -14,7 +14,7 @@ public class LyricActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_year_fact);
 
-        String fact = (String) getIntent().getExtras().get("Songs");
+        String fact = (String) getIntent().getExtras().get("yearfact");
         TextView textView = (TextView) findViewById(R.id.textView);
         textView.setText(fact);
 
