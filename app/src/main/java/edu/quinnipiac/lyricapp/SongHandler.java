@@ -2,6 +2,7 @@ package edu.quinnipiac.lyricapp;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import android.graphics.drawable.*;
 
 
 public class SongHandler {
@@ -20,8 +21,10 @@ public class SongHandler {
     }
 
     public String getLyrics(String lyricsJsonStr) throws JSONException {
-        JSONObject lyricsJSONObj = new JSONObject(lyricsJsonStr);
-        return lyricsJSONObj.getString("text");
+        JSONObject resultJSONObj = new JSONObject(lyricsJsonStr);
+        JSONObject responseJSONObj = resultJSONObj.getJSONObject("response");
+        JSONObject songJSONObj = responseJSONObj.getJSONObject("song");
+        return songJSONObj.getString("full_title");
     }
 
 }
