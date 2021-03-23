@@ -20,6 +20,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import static edu.quinnipiac.lyricapp.SongHandler.song_ids;
+
 public class MainActivity extends AppCompatActivity {
 
     SongHandler sgHandler = new SongHandler();
@@ -49,10 +51,10 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (userSelect) {
                     final String song = (String) parent.getItemAtPosition(position);
-                    Log.i("onItemSelected :song", song);
+                    Log.i("onItemSelected :song", SongHandler.song_ids[position]);
 
                     //TODO : call of async subclass goes here
-                    new FetchLyrics().execute(song);
+                    new FetchLyrics().execute(SongHandler.song_ids[position]);
                     userSelect = false;
                 }
             }
@@ -80,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             BufferedReader reader = null;
             String yearFact = null;
             try{
-                URL url = new URL(url1 + song_id);
+                URL url = new URL(url1 + strings[0]);
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("GET");
                 urlConnection.setRequestProperty("X-RapidAPI-Key","UygwA3LnI1mshAPcqbrTdu6rvUkxp1Kd1q6jsnETjeLq2t3LzS");
@@ -129,11 +131,14 @@ public class MainActivity extends AppCompatActivity {
         String line;
         if(reader !=null){
             try{
-                while((line = reader.readLine()) != null){
+                line = reader.readLine();
+                System.out.println(line);
+              /*  while((line = reader.readLine()) != null){
                     buffer.append(line + '\n');
-                }
+
+                } */
                 reader.close();
-                return sgHandler.getLyrics(buffer.toString());
+                return sgHandler.getLyrics(line);
             }catch (Exception e){
                 Log.e("MainActivity", "Error" + e.getMessage());
                 return null;

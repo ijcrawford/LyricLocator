@@ -9,14 +9,16 @@ public class SongHandler {
     private static final int START_SONG = 76877;
     private static final int END_SONG = 76882;
     public static final String Lyrics = "LYRICS";
-    final public static String [] songs = new String[END_SONG - START_SONG +1];
+    final public static String [] songs = {"", "Chandelier", "Into the Black", "Move Back", "Common People", "Progress"};
+    final public static String [] song_ids = {"", "76878","76879", "76880", "76881", "76882"};
 
     public SongHandler(){
 
         //populate the array
-        int i = 0;
+        /*int i = 0;
         for (int sg = START_SONG; sg <= END_SONG; sg++ )
-            songs[i++] = Integer.toString(sg);
+            songs[i++] = Integer.toString(sg);*/
+
     }
 
     public String getLyrics(String lyricsJsonStr) throws JSONException {
