@@ -26,7 +26,7 @@ public class SongHandler {
         JSONObject resultJSONObj = new JSONObject(lyricsJsonStr);
         JSONObject responseJSONObj = resultJSONObj.getJSONObject("response");
         JSONObject songJSONObj = responseJSONObj.getJSONObject("song");
-        return songJSONObj.getString("release_date_for_display");
+        return songJSONObj.getString("path");
     }
 
 }
