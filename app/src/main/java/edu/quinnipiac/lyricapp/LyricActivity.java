@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 public class LyricActivity extends AppCompatActivity {
 
@@ -26,22 +27,12 @@ public class LyricActivity extends AppCompatActivity {
         String path = (String) getIntent().getExtras().get("yearfact");
         String address = url1 + path;
 
-        myWebView = (WebView) findViewById(R.id.mywebview);
+        SongDetailFragment frag = (SongDetailFragment) getSupportFragmentManager().findFragmentById(R.id.detail_fragment);
+        frag.setSongUrl(address);
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.add(R.id.detail_fragment, new SongDetailFragment());
+        ft.commit();
 
-        myWebView.setWebViewClient(new MyWebViewClient());
-
-        if(myUrl == null){
-            myUrl = address;
-        }
-        myWebView.loadUrl(myUrl);
-    }
-    private class MyWebViewClient extends WebViewClient {
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            myUrl = url;
-            view.loadUrl(url);
-            return true;
-        }
     }
 
     }
