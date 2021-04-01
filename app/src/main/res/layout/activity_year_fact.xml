@@ -5,10 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <WebView
+
+    <!-- <WebView
         android:id="@+id/mywebview"
         android:layout_height="match_parent"
-        android:layout_width="match_parent" />
+        android:layout_width="match_parent" /> -->
 
 
 <!--    <TextView-->
@@ -20,4 +21,10 @@
 <!--        android:layout_marginRight="50dp"-->
 <!--        android:layout_gravity="center"-->
 <!--        android:text="TextView" />-->
+    <fragment
+        android:id="@+id/detail_fragment"
+        android:name="edu.quinnipiac.lyricapp.SongDetailFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 </FrameLayout>

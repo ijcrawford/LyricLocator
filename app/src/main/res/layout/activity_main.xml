@@ -7,13 +7,14 @@
     tools:context=".MainActivity">
 
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="0dp"
+    <fragment
+        android:id="@+id/list_fragment"
+        android:name="edu.quinnipiac.lyricapp.SongListFragment"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="252dp"
+        android:layout_marginEnd="141dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
